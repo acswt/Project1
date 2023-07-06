@@ -1,6 +1,6 @@
 Spring: 
     datasource:
-        url: jdbc:postgresql://localhost:5432/warehaus
+        url: jdbc:postgresql://localhost:5432/warehaus2
         username: postgres
         password: postgres1
     
