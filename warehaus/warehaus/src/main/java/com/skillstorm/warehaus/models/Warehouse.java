@@ -20,13 +20,16 @@ public class Warehouse {
     @Column(name = "warehouse_name")
     private String warehouseName;
 
-    public Warehouse() {
+    @Column(name = "warehouse_location")
+    private String warehouseLocation;
 
+    public Warehouse() {
     }
 
-    public Warehouse(int warehouse_id, String warehouseName) {
+    public Warehouse(int warehouse_id, String warehouseName, String warehouseLocation) {
         this.warehouse_id = warehouse_id;
         this.warehouseName = warehouseName;
+        this.warehouseLocation = warehouseLocation;
     }
 
     public int getWarehouse_id() {
@@ -43,6 +46,14 @@ public class Warehouse {
 
     public void setWarehouseName(String warehouseName) {
         this.warehouseName = warehouseName;
+    }
+
+    public String getWarehouseLocation() {
+        return warehouseLocation;
+    }
+
+    public void setWarehouseLocation(String warehouseLocation) {
+        this.warehouseLocation = warehouseLocation;
     }
 
     @Override
