@@ -19,6 +19,7 @@ public class CompanyProduct {
     @Column(name = "productCompany_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int productCompany_id;
+    
 
     public CompanyProduct() {
 
