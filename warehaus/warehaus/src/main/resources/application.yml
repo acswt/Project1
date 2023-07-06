@@ -1,0 +1,14 @@
+Spring: 
+    datasource:
+        url: jdbc:postgresql://localhost:5432/warehaus
+        username: postgres
+        password: postgres1
+    
+    output:
+        ansi:
+            enabled: always
+
+logging:
+    level:
+        com:
+            skillsotmr: debug
