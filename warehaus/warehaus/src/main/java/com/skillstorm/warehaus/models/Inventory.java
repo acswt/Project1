@@ -1,5 +1,5 @@
 package com.skillstorm.warehaus.models;
 
-public class WarehouseProduct {
+public class Inventory {
     
 }
