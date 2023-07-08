@@ -15,7 +15,7 @@ public class Warehouse {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int warehouse_id;
+    private int id;
 
     @Column(name = "warehouse_name")
     private String warehouseName;
@@ -29,19 +29,19 @@ public class Warehouse {
     public Warehouse() {
     }
 
-    public Warehouse(int warehouse_id, String warehouseName, String warehouseLocation, int warehouseLimit) {
-        this.warehouse_id = warehouse_id;
+    public Warehouse(int id, String warehouseName, String warehouseLocation, int warehouseLimit) {
+        this.id = id;
         this.warehouseName = warehouseName;
         this.warehouseLocation = warehouseLocation;
         this.warehouseLimit = warehouseLimit;
     }
 
     public int getWarehouse_id() {
-        return warehouse_id;
+        return id;
     }
 
-    public void setWarehouse_id(int warehouse_id) {
-        this.warehouse_id = warehouse_id;
+    public void setWarehouse_id(int id) {
+        this.id = id;
     }
 
     public String getWarehouseName() {
@@ -72,7 +72,7 @@ public class Warehouse {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + warehouse_id;
+        result = prime * result + id;
         result = prime * result + ((warehouseName == null) ? 0 : warehouseName.hashCode());
         result = prime * result + ((warehouseLocation == null) ? 0 : warehouseLocation.hashCode());
         result = prime * result + warehouseLimit;
@@ -88,7 +88,7 @@ public class Warehouse {
         if (getClass() != obj.getClass())
             return false;
         Warehouse other = (Warehouse) obj;
-        if (warehouse_id != other.warehouse_id)
+        if (id != other.id)
             return false;
         if (warehouseName == null) {
             if (other.warehouseName != null)
@@ -107,7 +107,7 @@ public class Warehouse {
 
     @Override
     public String toString() {
-        return "Warehouse [warehouse_id=" + warehouse_id + ", warehouseName=" + warehouseName + ", warehouseLocation="
+        return "Warehouse [id=" + id + ", warehouseName=" + warehouseName + ", warehouseLocation="
                 + warehouseLocation + ", warehouseLimit=" + warehouseLimit + "]";
     }
 

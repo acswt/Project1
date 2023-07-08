@@ -28,10 +28,10 @@ CREATE TABLE inventories (
 	CONSTRAINT FK_warehouse_id FOREIGN KEY (warehouse_id) REFERENCES warehouses(id)
 );
 
-INSERT INTO products
-VALUES (1, 'car')
+INSERT INTO warehouses
+VALUES (1, 'Car warehouse', 'Pittsburgh', 10)
 
-SELECT * FROM products
+SELECT * FROM warehouses
 
 COMMIT TRANSACTION;
 ROLLBACK;

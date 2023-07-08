@@ -39,4 +39,17 @@ public class WarehouseService {
 
     }
 
+        public Warehouse updateWarehouse(@Valid Warehouse warehouse) {
+        
+        return warehouseRepository.save(warehouse);
+
+    }
+
+        public void deleteWarehouse(Warehouse warehouse) {
+
+            warehouseRepository.delete(warehouse);
+
+        }
+
+
 }
