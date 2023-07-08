@@ -3,6 +3,8 @@ package com.skillstorm.warehaus.services;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,4 +32,22 @@ public class ProductService {
         return null;
 
     }
+
+        public Product saveProduct(@Valid Product product) {
+        
+        return productRepository.save(product);
+
+    }
+
+        public Product updateWarehouse(@Valid Product product) {
+        
+        return productRepository.save(product);
+
+    }
+
+        public void deleteProduct(Product product) {
+
+            productRepository.delete(product);
+
+        }
 }
