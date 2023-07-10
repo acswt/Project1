@@ -15,6 +15,7 @@ public class InventoryService {
     InventoryRepository inventoryRepository;
 
     public List<Inventory> findAllInventories() {
+        
         return inventoryRepository.findAll();
     }
 
