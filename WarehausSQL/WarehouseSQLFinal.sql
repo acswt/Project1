@@ -1,6 +1,6 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS warehouses, products, companies, inventories;
+DROP TABLE IF EXISTS warehouses, products, inventories;
 
 CREATE TABLE warehouses (
 	id SERIAL,
@@ -25,6 +25,29 @@ CREATE TABLE inventories (
 	CONSTRAINT FK_product_id FOREIGN KEY (product_id) REFERENCES products(id),
 	CONSTRAINT FK_warehouse_id FOREIGN KEY (warehouse_id) REFERENCES warehouses(id)
 );
+
+CREATE OR REPLACE FUNCTION check_max_fnc()
+  RETURNS trigger AS
+$$
+BEGIN
+if 
+(SELECT SUM (product_quantity)
+FROM inventories 
+WHERE warehouse_id = NEW.warehouse_id + NEW.product_quantity > SELECT warehouse_limit
+																  FROM warehouses WHERE id = NEW.warehouse_id 
+then
+RAISE EXCEPTION 'This would go over the warehouse limit!';
+end if;
+RETURN NEW;
+END;
+$$
+LANGUAGE 'plpgsql';
+
+CREATE TRIGGER inventory_insert_trigger
+  BEFORE INSERT
+  ON inventories
+  FOR EACH ROW
+  EXECUTE PROCEDURE check_max_fnc();
 
 COMMIT TRANSACTION;
 ROLLBACK;

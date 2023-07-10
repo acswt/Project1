@@ -32,7 +32,7 @@ public class InventoryService {
     }
 
         public Inventory saveInventory(@Valid Inventory inventory) {
-        
+
         return inventoryRepository.save(inventory);
 
     }
