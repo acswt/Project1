@@ -39,7 +39,7 @@ public class ProductService {
 
     }
 
-        public Product updateWarehouse(@Valid Product product) {
+        public Product updateProduct(@Valid Product product) {
         
         return productRepository.save(product);
 
