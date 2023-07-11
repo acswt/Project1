@@ -40,6 +40,7 @@ public class WarehouseService {
     // save a warehouse to the database
     public Warehouse saveWarehouse(@Valid Warehouse warehouse) {
         
+
         return warehouseRepository.save(warehouse);
 
     }

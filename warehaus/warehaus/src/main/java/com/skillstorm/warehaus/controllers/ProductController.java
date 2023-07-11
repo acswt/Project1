@@ -61,7 +61,7 @@ public class ProductController {
     }
 
     // delete a product
-    @DeleteMapping("/product")
+    @DeleteMapping("/product/{id}")
     public ResponseEntity<Warehouse> deleteProduct(@RequestBody Product product) {
 
         productService.deleteProduct(product);

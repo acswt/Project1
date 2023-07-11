@@ -35,7 +35,7 @@ public class WarehouseController {
     }
 
     // find a warehouse by its ID
-    @GetMapping("/warehouses/{id}")
+    @GetMapping("/warehouse/{id}")
     public ResponseEntity<Warehouse> findWarehouseById(@PathVariable int id) {
         Warehouse warehouse = warehouseService.findWarehouseById(id);
         return new ResponseEntity<Warehouse>(warehouse, HttpStatus.OK);
@@ -60,7 +60,7 @@ public class WarehouseController {
     }
 
     // delete a warehouse
-    @DeleteMapping("/warehouse")
+    @DeleteMapping("/warehouse/{id}")
     public ResponseEntity<Warehouse> deleteWarehouse(@RequestBody Warehouse warehouse) {
 
         warehouseService.deleteWarehouse(warehouse);

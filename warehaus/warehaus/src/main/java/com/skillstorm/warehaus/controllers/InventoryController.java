@@ -58,7 +58,7 @@ public class InventoryController {
     }
 
     // delete an inventory
-    @DeleteMapping("/inventory")
+    @DeleteMapping("/inventory/{id}")
     public ResponseEntity<Inventory> deleteInventory(@RequestBody Inventory inventory) {
 
         inventoryService.deleteInventory(inventory);
