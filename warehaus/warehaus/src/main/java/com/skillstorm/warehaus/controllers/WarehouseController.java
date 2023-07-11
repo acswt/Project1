@@ -60,7 +60,7 @@ public class WarehouseController {
     }
 
     // delete a warehouse
-    @DeleteMapping("/warehouse/{id}")
+    @DeleteMapping("/warehouse/")
     public ResponseEntity<Warehouse> deleteWarehouse(@RequestBody Warehouse warehouse) {
 
         warehouseService.deleteWarehouse(warehouse);
