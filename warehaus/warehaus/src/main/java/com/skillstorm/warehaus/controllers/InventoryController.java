@@ -23,6 +23,7 @@ public class InventoryController {
     @Autowired
     InventoryService inventoryService;
 
+    // get request for inventories
     @GetMapping
     public ResponseEntity<List<Inventory>> findAllInventories() {
         
@@ -30,6 +31,7 @@ public class InventoryController {
         return new ResponseEntity<List<Inventory>>(inventories, HttpStatus.OK);
     }
 
+    // get inventory by inventory id 
     @GetMapping("/inventory/{id}")
     public ResponseEntity<Inventory> findInventoryById(@PathVariable int id) {
         Inventory inventory = inventoryService.findInventoryById(id);
@@ -37,14 +39,16 @@ public class InventoryController {
 
     }
 
+    // create a new inventory
         @PostMapping("/inventory")
-    public ResponseEntity<Inventory> createProduct(@Valid @RequestBody Inventory inventory) {
+    public ResponseEntity<Inventory> createInventory(@Valid @RequestBody Inventory inventory) {
 
         Inventory newInventory = inventoryService.saveInventory(inventory);
         return new ResponseEntity<Inventory>(newInventory, HttpStatus.CREATED);
 
     }
 
+    // update an inventory 
     @PutMapping("/inventory")
     public ResponseEntity<Inventory> updateInventory(@RequestBody Inventory inventory) {
 
@@ -53,6 +57,7 @@ public class InventoryController {
 
     }
 
+    // delete an inventory
     @DeleteMapping("/inventory")
     public ResponseEntity<Inventory> deleteInventory(@RequestBody Inventory inventory) {
 

@@ -9,23 +9,28 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+// inventory model - connected to "inventories" table
 @Entity
 @Table(name = "inventories")
 public class Inventory {
     
+    // primary key for inventory (composite key made up of product_id and warehouse_id)
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    // foreign key from products table primary key ID
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product productId;
 
+    // foreign key from warehouses table primary key ID
     @ManyToOne
     @JoinColumn(name = "warehouse_id")
     private Warehouse warehouseId;
 
+    // quantity of product inserted into the inventory
     @Column(name = "product_quantity")
     private int productQuantity;
 

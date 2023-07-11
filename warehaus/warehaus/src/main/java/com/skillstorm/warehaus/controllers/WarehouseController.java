@@ -25,6 +25,7 @@ public class WarehouseController {
     @Autowired
     WarehouseService warehouseService;
 
+    // get a list of all warehouses
     @GetMapping
     public ResponseEntity<List<Warehouse>> findAllWarehouses() {
 
@@ -33,12 +34,14 @@ public class WarehouseController {
 
     }
 
+    // find a warehouse by its ID
     @GetMapping("/warehouses/{id}")
     public ResponseEntity<Warehouse> findWarehouseById(@PathVariable int id) {
         Warehouse warehouse = warehouseService.findWarehouseById(id);
         return new ResponseEntity<Warehouse>(warehouse, HttpStatus.OK);
     }
 
+    // create a new warehouse
     @PostMapping("/warehouse")
     public ResponseEntity<Warehouse> createWarehouse(@Valid @RequestBody Warehouse warehouse) {
 
@@ -47,6 +50,7 @@ public class WarehouseController {
 
     }
 
+    // update a warehouse
     @PutMapping("/warehouse")
     public ResponseEntity<Warehouse> updateWarehouse(@RequestBody Warehouse warehouse) {
 
@@ -55,6 +59,7 @@ public class WarehouseController {
 
     }
 
+    // delete a warehouse
     @DeleteMapping("/warehouse")
     public ResponseEntity<Warehouse> deleteWarehouse(@RequestBody Warehouse warehouse) {
 

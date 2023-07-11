@@ -7,15 +7,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+// products model - connected to products table
 @Entity
 @Table(name = "products")
 public class Product {
     
+    // primary key for product
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    // name of product
     @Column(name = "product_name")
     private String productName;
 

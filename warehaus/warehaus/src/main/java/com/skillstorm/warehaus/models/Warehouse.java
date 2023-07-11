@@ -7,22 +7,26 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+// warehouse model - connected to warehouses table in database
 @Entity
 @Table(name = "warehouses")
 public class Warehouse {
     
-
+    // warehouse primary key
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    // warehouse name 
     @Column(name = "warehouse_name")
     private String warehouseName;
 
+    // location of the warehouse
     @Column(name = "warehouse_location")
     private String warehouseLocation;
 
+    // inventory limit in the warehouse
     @Column(name = "warehouse_limit")
     private int warehouseLimit;
 

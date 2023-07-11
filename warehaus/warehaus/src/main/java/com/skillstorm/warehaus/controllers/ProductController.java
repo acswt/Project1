@@ -26,6 +26,7 @@ public class ProductController {
     @Autowired
     ProductService productService;
 
+    // get a list of all products
     @GetMapping
     public ResponseEntity<List<Product>> findAllProducts() {
         
@@ -33,13 +34,15 @@ public class ProductController {
         return new ResponseEntity<List<Product>>(products, HttpStatus.OK);
     }
 
+    // find a product by the product id
     @GetMapping("/product/{id}")
     public ResponseEntity<Product> findProductById(@PathVariable int id) {
         Product product = productService.findProductById(id);
         return new ResponseEntity<Product>(product, HttpStatus.OK);
 
     }
-
+    
+        // create a new product
         @PostMapping("/product")
     public ResponseEntity<Product> createProduct(@Valid @RequestBody Product product) {
 
@@ -48,6 +51,7 @@ public class ProductController {
 
     }
 
+    // update a product
     @PutMapping("/product")
     public ResponseEntity<Product> updateProduct(@RequestBody Product product) {
 
@@ -56,6 +60,7 @@ public class ProductController {
 
     }
 
+    // delete a product
     @DeleteMapping("/product")
     public ResponseEntity<Warehouse> deleteProduct(@RequestBody Product product) {
 
