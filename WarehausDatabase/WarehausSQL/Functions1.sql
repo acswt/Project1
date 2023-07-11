@@ -1,25 +1,47 @@
-DROP TRIGGER IF EXISTS warehouseProduct_insert_trigger;
-DROP FUNCTION IF EXISTS warehouseProduct_insert_trigger_fnc();
+DROP TRIGGER update_current_capacity_trigger;
+DROP FUNCTION IF EXISTS update_current_capacity_fnc();
 
 --*********************
 
-CREATE OR REPLACE FUNCTION warehouseProduct_insert_trigger_fnc()
+CREATE OR REPLACE FUNCTION update_current_capacity_fnc()
   RETURNS trigger AS
 $$
 BEGIN
-    INSERT INTO warehouse_product ( warehouse_id)
-         VALUES(NEW.warehouse_id);
-RETURN NEW;
+    UPDATE warehouses
+	SET warehouse_current_capacity = (SELECT SUM (product_quantity) FROM inventories)
+	WHERE warehouses.id = NEW.warehouse_id;
+	RETURN NEW;
 END;
 $$
 LANGUAGE 'plpgsql';
 
-CREATE TRIGGER warehouseProduct_insert_trigger
+CREATE TRIGGER update_current_capacity_trigger
   AFTER INSERT
-  ON warehouses
+  ON inventories
   FOR EACH ROW
-  EXECUTE PROCEDURE warehouseProduct_insert_trigger_fnc();
---**********************
+  EXECUTE PROCEDURE update_current_capacity_fnc();
+									  
+--*********************
+									  CREATE OR REPLACE TRIGGER
+
+CREATE OR REPLACE FUNCTION check_max_fnc()
+  RETURNS trigger AS
+$$
+BEGIN
+if 
+(SELECT SUM (product_quantity) FROM inventories
+	WHERE warehouses.id = NEW.warehouse_id) + NEW.product_quantity > (SELECT warehouse_limit FROM warehouses WHERE id = NEW.warehouse_id) 
+then
+RAISE NOTICE 'This would go over the warehouse limit!';
+END
+$$
+LANGUAGE 'plpgsql';
+
+CREATE TRIGGER inventory_insert_trigger
+  BEFORE INSERT
+  ON inventories
+  FOR EACH ROW
+  EXECUTE PROCEDURE check_max_fnc();
 
 --*********************
 
@@ -40,15 +62,6 @@ CREATE TRIGGER warehouseProduct_insert_trigger2
   FOR EACH ROW
   EXECUTE PROCEDURE warehouseProduct_insert_trigger_fnc2();
 --**********************
-
-INSERT INTO warehouses
-VALUES (2001, 'Car Shop', 'Pittsburgh')
-
-INSERT INTO warehouses
-VALUES (2002, 'Clothing Store', 'Pittsburgh')
-
-INSERT INTO products
-VALUES (3001, 'shirt')
 
 SELECT * from warehouses;
 SELECT * FROM products;

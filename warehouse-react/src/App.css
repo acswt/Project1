@@ -40,3 +40,12 @@
 .read-the-docs {
   color: #888;
 }
+
+#main-page-route-links {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.main-page-anchors {
+  font-size: 40px;
+}

@@ -38,6 +38,8 @@ public class InventoryService {
         // save inventory to database
         public Inventory saveInventory(@Valid Inventory inventory) {
 
+        
+
         return inventoryRepository.save(inventory);
 
     }

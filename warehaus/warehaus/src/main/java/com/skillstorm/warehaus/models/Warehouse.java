@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Value;
+
 // warehouse model - connected to warehouses table in database
 @Entity
 @Table(name = "warehouses")
@@ -26,6 +28,10 @@ public class Warehouse {
     @Column(name = "warehouse_location")
     private String warehouseLocation;
 
+    @Column(name = "warehouse_current_capacity")
+    @Value("0")
+    private int currentCapacity;
+
     // inventory limit in the warehouse
     @Column(name = "warehouse_limit")
     private int warehouseLimit;
@@ -33,18 +39,19 @@ public class Warehouse {
     public Warehouse() {
     }
 
-    public Warehouse(int id, String warehouseName, String warehouseLocation, int warehouseLimit) {
+    public Warehouse(int id, String warehouseName, String warehouseLocation, int currentCapacity, int warehouseLimit) {
         this.id = id;
         this.warehouseName = warehouseName;
         this.warehouseLocation = warehouseLocation;
+        this.currentCapacity = currentCapacity;
         this.warehouseLimit = warehouseLimit;
     }
 
-    public int getWarehouse_id() {
+    public int getId() {
         return id;
     }
 
-    public void setWarehouse_id(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -64,6 +71,14 @@ public class Warehouse {
         this.warehouseLocation = warehouseLocation;
     }
 
+    public int getCurrentCapacity() {
+        return currentCapacity;
+    }
+
+    public void setCurrentCapacity(int currentCapacity) {
+        this.currentCapacity = currentCapacity;
+    }
+
     public int getWarehouseLimit() {
         return warehouseLimit;
     }
@@ -79,6 +94,7 @@ public class Warehouse {
         result = prime * result + id;
         result = prime * result + ((warehouseName == null) ? 0 : warehouseName.hashCode());
         result = prime * result + ((warehouseLocation == null) ? 0 : warehouseLocation.hashCode());
+        result = prime * result + currentCapacity;
         result = prime * result + warehouseLimit;
         return result;
     }
@@ -104,6 +120,8 @@ public class Warehouse {
                 return false;
         } else if (!warehouseLocation.equals(other.warehouseLocation))
             return false;
+        if (currentCapacity != other.currentCapacity)
+            return false;
         if (warehouseLimit != other.warehouseLimit)
             return false;
         return true;
@@ -111,10 +129,8 @@ public class Warehouse {
 
     @Override
     public String toString() {
-        return "Warehouse [id=" + id + ", warehouseName=" + warehouseName + ", warehouseLocation="
-                + warehouseLocation + ", warehouseLimit=" + warehouseLimit + "]";
+        return "Warehouse [id=" + id + ", warehouseName=" + warehouseName + ", warehouseLocation=" + warehouseLocation
+                + ", currentCapacity=" + currentCapacity + ", warehouseLimit=" + warehouseLimit + "]";
     }
-
-    
 
 }
