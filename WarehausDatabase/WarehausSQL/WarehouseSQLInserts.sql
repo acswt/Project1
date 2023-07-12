@@ -5,10 +5,10 @@ INSERT INTO products
 VALUES (2, 'Scooter')
 
 INSERT INTO warehouses
-VALUES (1, 'Car Garage', 'Pittsburgh', null, )
+VALUES (4, 'Clothing Garage', 'Pittsburgh', 0, 10)
 
 INSERT INTO inventories
-VALUES (2, 2, 1, 8);
+VALUES (1, 1, 4, 1000);
 
 INSERT INTO inventories
 VALUES (10, 5, 2, 1000);
