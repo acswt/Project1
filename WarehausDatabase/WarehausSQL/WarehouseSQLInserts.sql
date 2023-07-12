@@ -11,7 +11,7 @@ INSERT INTO inventories
 VALUES (1, 1, 4, 1000);
 
 INSERT INTO inventories
-VALUES (10, 5, 2, 1000);
+VALUES (2, 1, 4, 4000);
 
 SELECT * from inventories
 
