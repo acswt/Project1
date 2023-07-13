@@ -1,5 +1,6 @@
 import { Table } from "@trussworks/react-uswds";
 
+
 export default function ProductTable({tableData}) {
 
     return (

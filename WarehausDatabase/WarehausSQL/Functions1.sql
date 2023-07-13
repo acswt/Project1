@@ -50,4 +50,4 @@ CREATE TRIGGER inventory_insert_trigger
 
 SELECT * from warehouses;
 SELECT * FROM products;
-SELECT * FROM warehouse_product;
+SELECT * FROM inventories;
