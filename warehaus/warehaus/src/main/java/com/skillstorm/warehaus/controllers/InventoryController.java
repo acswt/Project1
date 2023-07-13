@@ -1,6 +1,8 @@
 package com.skillstorm.warehaus.controllers;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,6 +16,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.skillstorm.warehaus.DTOs.InventoryDTO;
 import com.skillstorm.warehaus.models.Inventory;
 import com.skillstorm.warehaus.services.InventoryService;
 
@@ -26,12 +30,30 @@ public class InventoryController {
     InventoryService inventoryService;
 
     // get request for inventories
-    @GetMapping
-    public ResponseEntity<List<Inventory>> findAllInventories() {
+    // @GetMapping
+    // public ResponseEntity<List<Inventory>> findAllInventories() {
         
-        List<Inventory> inventories = inventoryService.findAllInventories();
-        return new ResponseEntity<List<Inventory>>(inventories, HttpStatus.OK);
-    }
+    //     List<Inventory> inventories = inventoryService.findAllInventories();
+    //     return new ResponseEntity<List<Inventory>>(inventories, HttpStatus.OK);
+    // }
+
+@GetMapping
+public ResponseEntity<List<InventoryDTO>> findAllInventories() {
+    List<Inventory> inventories = inventoryService.findAllInventories();
+
+    List<InventoryDTO> inventoryDTOs = inventories.stream()
+            .map(inventory -> {
+                InventoryDTO dto = new InventoryDTO();
+                dto.setId(inventory.getId());
+                dto.setProduct_id(inventory.getProduct_id());
+                dto.getWarehouse_id(inventory.getWarehouse_id());
+                dto.setProduct_quantity(inventory.getProduct_quantity());
+                return dto;
+            })
+            .collect(Collectors.toList());
+
+    return new ResponseEntity<>(inventoryDTOs, HttpStatus.OK);
+}
 
     // get inventory by inventory id 
     @GetMapping("/inventory/{id}")

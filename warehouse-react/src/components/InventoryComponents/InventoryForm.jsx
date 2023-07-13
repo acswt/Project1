@@ -11,21 +11,32 @@ export default function InventoryForm({handleNewInventory}) {
 
     const data = new FormData(event.target)
 
-    const newInventory =     {
-      id: data.get("id"),
-      product_id: {
-          id: data.get("id"),
-          product_name: data.get("product_name")
-      },
-      warehouse_id: {
-          id: data.get("id"),
-          warehouse_name: data.get("warehouse_name"),
-          warehouse_location: data.get("warehouse_location"),
-          warehouse_current_capacity: data.get("warehouse_current_capacity"),
-          warehouse_limit: data.get("warehouse_limit")
-      },
-      product_quantity: data.get("product_quantity")
+    console.log(data + "This is the data");
+
+  //   const newInventory =     {
+  //     id: data.get("id"),
+  //     product_id: {
+  //         id: data.get("id")
+  //         // product_name: data.get("product_name")
+  //     },
+  //     warehouse_id: {
+  //         id: data.get("id")
+  //         // warehouse_name: data.get("warehouse_name"),
+  //         // warehouse_location: data.get("warehouse_location"),
+  //         // warehouse_current_capacity: data.get("warehouse_current_capacity"),
+  //         // warehouse_limit: data.get("warehouse_limit")
+  //     },
+  //     product_quantity: data.get("product_quantity")
+  // }
+
+  const newInventory = {
+    id: data.get("id"),
+    product_id: data.get("product_id.id"),
+    warehouse_id: data.get("warehouse_id.id"),
+    product_quantity: data.get("product_quantity") 
   }
+
+  
 
     fetch(url + "/inventory", {
       method : "POST",

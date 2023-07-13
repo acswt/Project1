@@ -3,6 +3,7 @@ import WarehouseTable from "./WarehouseTable";
 import { useEffect, useRef, useState } from "react";
 import WarehouseForm from "./WarehouseForm";
 import UpdateWarehouseButton from "./UpdateWarehouseButton";
+import DeleteWarehouseButton from "./DeleteWarehouseButton";
 
 export default function Warehouses() {
 
@@ -13,6 +14,7 @@ export default function Warehouses() {
 
     const modalRef = useRef(null);
     const modalRef3 = useRef(null);
+    const modalRef4 = useRef(null);
 
     useEffect(() => {
         fetch(url)
@@ -39,12 +41,17 @@ export default function Warehouses() {
                     <Grid col={10}>
                         <h1 className='text-centered'>All Warehouses</h1>
                     </Grid>
+                    
                     <Grid col={2}>
                         <ModalToggleButton modalRef={modalRef} opener>New Warehouse</ModalToggleButton>
                     </Grid>
 
                     <Grid col={2}>
                         <ModalToggleButton modalRef={modalRef3} opener>Update Warehouse</ModalToggleButton>
+                    </Grid>
+
+                    <Grid col={2}>
+                        <ModalToggleButton modalRef={modalRef4} opener>Delete Warehouse</ModalToggleButton>
                     </Grid>
 
                 </Grid>
@@ -68,6 +75,14 @@ export default function Warehouses() {
                 <ModalHeading id="warehouse-form-modal-heading">Update Warehouse Details</ModalHeading>
 
                 <UpdateWarehouseButton handleNewWarehouse={handleNewWarehouse}></UpdateWarehouseButton>
+
+            </Modal>
+
+            <Modal id='warehouse-form-modal' ref={modalRef4}>
+
+                <ModalHeading id="warehouse-form-modal-heading">Delete Warehouse</ModalHeading>
+
+                <DeleteWarehouseButton handleNewWarehouse={handleNewWarehouse}></DeleteWarehouseButton>
 
             </Modal>
 

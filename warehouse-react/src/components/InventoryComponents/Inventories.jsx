@@ -6,6 +6,7 @@ import InventoryForm from "./InventoryForm";
 
 export default function Inventories() {
 
+
     const url = 'http://localhost:8080/inventories';
 
     // state for list of inventories
@@ -13,10 +14,14 @@ export default function Inventories() {
 
     const modalRef = useRef(null);
 
+    console.log(inventories)
+
     useEffect(() => {
         fetch(url)
         .then(data => data.json())
             .then(returnedData => {
+                console.log("HEYYYYY")
+                console.log(returnedData)
                 setInventories(returnedData)
             })
             .catch(error => console.error(error))
@@ -24,7 +29,11 @@ export default function Inventories() {
 
 
     function handleNewInventory(newInventory) {
-        setInventories((oldState) => [...oldState, newInventory]);
+        console.log("HERE IN THE NEW INV")
+        console.log(newInventory)
+        setInventories((oldState) => {
+            return [...oldState, newInventory]
+        });
 
     }
 

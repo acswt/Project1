@@ -11,6 +11,8 @@ export default function ProductForm(handleNewProduct) {
 
     const data = new FormData(event.target)
 
+    console.log("HERE IS THE PRODUCTs")
+
     const newProduct = {
       id : data.get("id"),
       product_name : data.get("product_name")
