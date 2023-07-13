@@ -1,7 +1,7 @@
 import { Button, Form, Label, TextInput } from "@trussworks/react-uswds";
 
 
-export default function InventoryForm(handleNewInventory) {
+export default function InventoryForm({handleNewInventory}) {
 
   const url = 'http://localhost:8080/inventories';
 

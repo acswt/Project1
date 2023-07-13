@@ -2,6 +2,7 @@ import { Button, Grid, GridContainer, Modal, ModalHeading, ModalToggleButton } f
 import ProductTable from "./ProductTable";
 import { useEffect, useRef, useState } from "react";
 import ProductForm from "./ProductForm";
+import UpdateProductButton from "./UpdateProductButton";
 
 export default function Products() {
 
@@ -11,6 +12,7 @@ export default function Products() {
     const [products, setProducts] = useState([]);
 
     const modalRef = useRef(null);
+    const modalRef2 = useRef(null);
 
     useEffect(() => {
         fetch(url)
@@ -41,6 +43,10 @@ export default function Products() {
                         <ModalToggleButton modalRef={modalRef} opener>New Product</ModalToggleButton>
                     </Grid>
 
+                    <Grid col={2}>
+                        <ModalToggleButton modalRef={modalRef2} opener>Update Product</ModalToggleButton>
+                    </Grid>
+
                 </Grid>
                 <Grid row>
                     <Grid col>
@@ -54,6 +60,14 @@ export default function Products() {
                 <ModalHeading id="product-form-modal-heading">Enter New Product Details</ModalHeading>
 
                 <ProductForm handleNewProduct={handleNewProduct}></ProductForm>
+
+            </Modal>
+
+            <Modal id='product-form-modal' ref={modalRef2}>
+
+                <ModalHeading id="product-form-modal-heading">Update Product Details</ModalHeading>
+
+                <UpdateProductButton handleNewProduct={handleNewProduct}></UpdateProductButton>
 
             </Modal>
 

@@ -1,4 +1,5 @@
-import { Button, Grid, GridContainer, Modal, ModalHeading, ModalToggleButton } from "@trussworks/react-uswds";
+import { Grid, Modal, ModalHeading, ModalToggleButton } from "@trussworks/react-uswds";
+import { GridContainer } from "@trussworks/react-uswds";
 import InventoryTable from "./InventoryTable";
 import { useEffect, useRef, useState } from "react";
 import InventoryForm from "./InventoryForm";
@@ -23,9 +24,7 @@ export default function Inventories() {
 
 
     function handleNewInventory(newInventory) {
-        setInventories((oldState) => {
-            return [...oldState, newInventory]
-        })
+        setInventories((oldState) => [...oldState, newInventory]);
 
     }
 

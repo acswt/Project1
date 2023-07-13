@@ -2,6 +2,7 @@ import { Button, Grid, GridContainer, Modal, ModalHeading, ModalToggleButton } f
 import WarehouseTable from "./WarehouseTable";
 import { useEffect, useRef, useState } from "react";
 import WarehouseForm from "./WarehouseForm";
+import UpdateWarehouseButton from "./UpdateWarehouseButton";
 
 export default function Warehouses() {
 
@@ -11,6 +12,7 @@ export default function Warehouses() {
     const [warehouses, setWarehouses] = useState([]);
 
     const modalRef = useRef(null);
+    const modalRef3 = useRef(null);
 
     useEffect(() => {
         fetch(url)
@@ -41,12 +43,16 @@ export default function Warehouses() {
                         <ModalToggleButton modalRef={modalRef} opener>New Warehouse</ModalToggleButton>
                     </Grid>
 
+                    <Grid col={2}>
+                        <ModalToggleButton modalRef={modalRef3} opener>Update Warehouse</ModalToggleButton>
                     </Grid>
-                    <Grid row>
-                        <Grid col>
-                            <WarehouseTable tableData={warehouses}></WarehouseTable>
-                        </Grid>
+
+                </Grid>
+                <Grid row>
+                    <Grid col>
+                        <WarehouseTable tableData={warehouses}></WarehouseTable>
                     </Grid>
+                </Grid>
             </GridContainer>
 
             <Modal id='warehouse-form-modal' ref={modalRef}>
@@ -54,6 +60,14 @@ export default function Warehouses() {
                 <ModalHeading id="warehouse-form-modal-heading">Enter New Warehouse Details</ModalHeading>
 
                 <WarehouseForm handleNewWarehouse={handleNewWarehouse}></WarehouseForm>
+
+            </Modal>
+
+            <Modal id='warehouse-form-modal' ref={modalRef3}>
+
+                <ModalHeading id="warehouse-form-modal-heading">Update Warehouse Details</ModalHeading>
+
+                <UpdateWarehouseButton handleNewWarehouse={handleNewWarehouse}></UpdateWarehouseButton>
 
             </Modal>
 
