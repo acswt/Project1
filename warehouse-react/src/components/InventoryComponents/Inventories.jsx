@@ -14,9 +14,7 @@ export default function Inventories() {
 
     useEffect(() => {
         fetch(url)
-            .then(data => {
-                data.json
-            })
+        .then(data => data.json())
             .then(returnedData => {
                 setInventories(returnedData)
             })

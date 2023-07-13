@@ -2,9 +2,18 @@ import { Table } from "@trussworks/react-uswds";
 
 export default function WarehouseTable({tableData}) {
 
+    console.log(tableData);
+
+    if (!Array.isArray(tableData)) {
+        console.log("Not an array");
+        
+        return null;
+      } 
+
     return (
 
         <>
+
         <Table striped fullWidth className="bg-primary-lighter" >
             <thead>
                 <tr>
@@ -18,12 +27,12 @@ export default function WarehouseTable({tableData}) {
             <tbody>
                 {tableData.map((warehouse) => {
                     return (
-                        <tr key={warehouses.id}> 
-                            <td>{warehouses.id}</td>
-                            <td>{warehouses.name}</td>
-                            <td>{warehouses.location}</td>
-                            <td>{warehouses.currentCapacity}</td>
-                            <td>{warehouses.warehouseLimit}</td>
+                        <tr key={warehouse.id}> 
+                            <td>{warehouse.id}</td>
+                            <td>{warehouse.warehouseName}</td>
+                            <td>{warehouse.warehouseLocation}</td>
+                            <td>{warehouse.currentCapacity}</td>
+                            <td>{warehouse.warehouseLimit}</td>
                         </tr>
                     )
                 })}

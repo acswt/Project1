@@ -9,12 +9,12 @@ export default function App() {
 
     return (
         <>
-            <header><Navbar class="navbar"></Navbar></header>
-            <div>
+            <Navbar class="navbar"></Navbar>
+            
                 <Warehouses class="warehouses"></Warehouses>
                 <Products class="products"></Products>
                 <Inventories class="inventories"></Inventories>
-            </div>
+            
         </>
     );
 }

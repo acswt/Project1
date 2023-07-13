@@ -17,7 +17,7 @@ export default function ProductTable({tableData}) {
                     return (
                         <tr key={product.id}> 
                             <td>{product.id}</td>
-                            <td>{product.name}</td>
+                            <td>{product.productName}</td>
                         </tr>
                     )
                 })}

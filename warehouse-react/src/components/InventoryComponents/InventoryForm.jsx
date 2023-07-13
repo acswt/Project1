@@ -12,10 +12,10 @@ export default function InventoryForm(handleNewInventory) {
     const data = new FormData(event.target)
 
     const newInventory = {
-      id : data.get("inventoryId"),
+      id : data.get("id"),
       productId : data.get("productId"),
       warehouseId : data.get("warehouseId"),
-      quantity : data.get("inventoryQuantity")
+      quantity : data.get("productQuantity")
     }
 
     fetch(url + "/inventory", {

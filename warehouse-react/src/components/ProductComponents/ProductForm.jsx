@@ -12,7 +12,7 @@ export default function ProductForm(handleNewProduct) {
     const data = new FormData(event.target)
 
     const newProduct = {
-      id : data.get("productId"),
+      id : data.get("id"),
       name : data.get("productName")
     }
 

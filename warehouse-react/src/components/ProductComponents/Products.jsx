@@ -5,7 +5,7 @@ import ProductForm from "./ProductForm";
 
 export default function Products() {
 
-    const url = 'http://localhost:8080/products';
+    const url = 'http://localhost:8080/products/';
 
     // state for list of products
     const [products, setProducts] = useState([]);
@@ -14,11 +14,9 @@ export default function Products() {
 
     useEffect(() => {
         fetch(url)
-            .then(data => {
-                data.json
-            })
+            .then(data => data.json())
             .then(returnedData => {
-                setWarehouses(returnedData)
+                setProducts(returnedData)
             })
             .catch(error => console.error(error))
     }, []);

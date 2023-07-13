@@ -21,7 +21,7 @@ import com.skillstorm.warehaus.services.WarehouseService;
 
 @RestController
 @RequestMapping("/warehouses")
-@CrossOrigin(origins = "http://localhost:8080/warehouses/")
+@CrossOrigin("*")
 public class WarehouseController {
     
     @Autowired

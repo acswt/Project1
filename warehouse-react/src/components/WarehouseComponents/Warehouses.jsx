@@ -14,9 +14,7 @@ export default function Warehouses() {
 
     useEffect(() => {
         fetch(url)
-            .then(data => {
-                data.json
-            })
+            .then(data => data.json())
             .then(returnedData => {
                 setWarehouses(returnedData)
             })

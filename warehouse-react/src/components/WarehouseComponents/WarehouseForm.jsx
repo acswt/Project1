@@ -12,11 +12,11 @@ export default function WarehouseForm(handleNewWarehouse) {
     const data = new FormData(event.target)
 
     const newWarehouse = {
-      id : data.get("warehouseId"),
-      name : data.get("warehouseName"),
-      location : data.get("warehouseLocation"),
-      capacity : data.get("warehouseCapacity"),
-      limit : data.get("warehouseLimit")
+      id : data.get("id"),
+      warehouseName : data.get("warehouseName"),
+      warehouseLocation : data.get("warehouseLocation"),
+      currentCapacity : data.get("currentCapacity"),
+      warehouseLimit : data.get("warehouseLimit")
     }
 
     fetch(url + "/warehouse", {

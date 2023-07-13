@@ -19,18 +19,14 @@ export default function InventoryTable({tableData}) {
                     return (
                         <tr key={inventory.id}> 
                             <td>{inventory.id}</td>
-                            <td>{product.id}</td>
-                            <td>{warehouse.id}</td>
-                            <td>{inventory.quantity}</td>
+                            <td>{inventory.productId}</td>
+                            <td>{inventory.warehouseId}</td>
+                            <td>{inventory.productQuantity}</td>
                         </tr>
                     )
                 })}
             </tbody>
-
-
         </Table>
         </>
-
     );
-
 }
