@@ -16,15 +16,15 @@ export default function Warehouses() {
         fetch(url)
             .then(data => data.json())
             .then(returnedData => {
-                setWarehouses(returnedData)
+                setWarehouses(returnedData);
             })
-            .catch(error => console.error(error))
+            .catch(error => console.error(error));
     }, []);
 
 
     function handleNewWarehouse(newWarehouse) {
         setWarehouses((oldState) => {
-            return [...oldState, newWarehouse]
+            return [...oldState, newWarehouse];
         })
 
     }
@@ -41,12 +41,12 @@ export default function Warehouses() {
                         <ModalToggleButton modalRef={modalRef} opener>New Warehouse</ModalToggleButton>
                     </Grid>
 
+                    </Grid>
                     <Grid row>
                         <Grid col>
                             <WarehouseTable tableData={warehouses}></WarehouseTable>
                         </Grid>
                     </Grid>
-                </Grid>
             </GridContainer>
 
             <Modal id='warehouse-form-modal' ref={modalRef}>

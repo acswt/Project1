@@ -23,25 +23,25 @@ public class Inventory {
     // foreign key from products table primary key ID
     @ManyToOne
     @JoinColumn(name = "product_id")
-    private Product productId;
+    private Product product_id;
 
     // foreign key from warehouses table primary key ID
     @ManyToOne
     @JoinColumn(name = "warehouse_id")
-    private Warehouse warehouseId;
+    private Warehouse warehouse_id;
 
     // quantity of product inserted into the inventory
     @Column(name = "product_quantity")
-    private int productQuantity;
+    private int product_quantity;
 
     public Inventory() {
     }
 
-    public Inventory(int id, Product productId, Warehouse warehouseId, int productQuantity) {
+    public Inventory(int id, Product product_id, Warehouse warehouse_id, int product_quantity) {
         this.id = id;
-        this.productId = productId;
-        this.warehouseId = warehouseId;
-        this.productQuantity = productQuantity;
+        this.product_id = product_id;
+        this.warehouse_id = warehouse_id;
+        this.product_quantity = product_quantity;
     }
 
     public int getId() {
@@ -52,28 +52,28 @@ public class Inventory {
         this.id = id;
     }
 
-    public Product getProductId() {
-        return productId;
+    public Product getProduct_id() {
+        return product_id;
     }
 
-    public void setProductId(Product productId) {
-        this.productId = productId;
+    public void setProduct_id(Product product_id) {
+        this.product_id = product_id;
     }
 
-    public Warehouse getWarehouseId() {
-        return warehouseId;
+    public Warehouse getWarehouse_id() {
+        return warehouse_id;
     }
 
-    public void setWarehouseId(Warehouse warehouseId) {
-        this.warehouseId = warehouseId;
+    public void setWarehouse_id(Warehouse warehouse_id) {
+        this.warehouse_id = warehouse_id;
     }
 
-    public int getProductQuantity() {
-        return productQuantity;
+    public int getProduct_quantity() {
+        return product_quantity;
     }
 
-    public void setProductQuantity(int productQuantity) {
-        this.productQuantity = productQuantity;
+    public void setProduct_quantity(int product_quantity) {
+        this.product_quantity = product_quantity;
     }
 
     @Override
@@ -81,9 +81,9 @@ public class Inventory {
         final int prime = 31;
         int result = 1;
         result = prime * result + id;
-        result = prime * result + ((productId == null) ? 0 : productId.hashCode());
-        result = prime * result + ((warehouseId == null) ? 0 : warehouseId.hashCode());
-        result = prime * result + productQuantity;
+        result = prime * result + ((product_id == null) ? 0 : product_id.hashCode());
+        result = prime * result + ((warehouse_id == null) ? 0 : warehouse_id.hashCode());
+        result = prime * result + product_quantity;
         return result;
     }
 
@@ -98,25 +98,25 @@ public class Inventory {
         Inventory other = (Inventory) obj;
         if (id != other.id)
             return false;
-        if (productId == null) {
-            if (other.productId != null)
+        if (product_id == null) {
+            if (other.product_id != null)
                 return false;
-        } else if (!productId.equals(other.productId))
+        } else if (!product_id.equals(other.product_id))
             return false;
-        if (warehouseId == null) {
-            if (other.warehouseId != null)
+        if (warehouse_id == null) {
+            if (other.warehouse_id != null)
                 return false;
-        } else if (!warehouseId.equals(other.warehouseId))
+        } else if (!warehouse_id.equals(other.warehouse_id))
             return false;
-        if (productQuantity != other.productQuantity)
+        if (product_quantity != other.product_quantity)
             return false;
         return true;
     }
 
     @Override
     public String toString() {
-        return "Inventory [id=" + id + ", productId=" + productId + ", warehouseId=" + warehouseId
-                + ", productQuantity=" + productQuantity + "]";
+        return "Inventory [id=" + id + ", product_id=" + product_id + ", warehouse_id=" + warehouse_id
+                + ", product_quantity=" + product_quantity + "]";
     }
 
 }

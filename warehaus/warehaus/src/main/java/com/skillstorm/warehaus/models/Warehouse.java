@@ -22,29 +22,30 @@ public class Warehouse {
 
     // warehouse name 
     @Column(name = "warehouse_name")
-    private String warehouseName;
+    private String warehouse_name;
 
     // location of the warehouse
     @Column(name = "warehouse_location")
-    private String warehouseLocation;
+    private String warehouse_location;
 
     @Column(name = "warehouse_current_capacity")
     @Value("0")
-    private int currentCapacity;
+    private int warehouse_current_capacity;
 
     // inventory limit in the warehouse
     @Column(name = "warehouse_limit")
-    private int warehouseLimit;
+    private int warehouse_limit;
 
     public Warehouse() {
     }
 
-    public Warehouse(int id, String warehouseName, String warehouseLocation, int currentCapacity, int warehouseLimit) {
+    public Warehouse(int id, String warehouse_name, String warehouse_location, int warehouse_current_capacity,
+            int warehouse_limit) {
         this.id = id;
-        this.warehouseName = warehouseName;
-        this.warehouseLocation = warehouseLocation;
-        this.currentCapacity = currentCapacity;
-        this.warehouseLimit = warehouseLimit;
+        this.warehouse_name = warehouse_name;
+        this.warehouse_location = warehouse_location;
+        this.warehouse_current_capacity = warehouse_current_capacity;
+        this.warehouse_limit = warehouse_limit;
     }
 
     public int getId() {
@@ -55,36 +56,36 @@ public class Warehouse {
         this.id = id;
     }
 
-    public String getWarehouseName() {
-        return warehouseName;
+    public String getWarehouse_name() {
+        return warehouse_name;
     }
 
-    public void setWarehouseName(String warehouseName) {
-        this.warehouseName = warehouseName;
+    public void setWarehouse_name(String warehouse_name) {
+        this.warehouse_name = warehouse_name;
     }
 
-    public String getWarehouseLocation() {
-        return warehouseLocation;
+    public String getWarehouse_location() {
+        return warehouse_location;
     }
 
-    public void setWarehouseLocation(String warehouseLocation) {
-        this.warehouseLocation = warehouseLocation;
+    public void setWarehouse_location(String warehouse_location) {
+        this.warehouse_location = warehouse_location;
     }
 
-    public int getCurrentCapacity() {
-        return currentCapacity;
+    public int getWarehouse_current_capacity() {
+        return warehouse_current_capacity;
     }
 
-    public void setCurrentCapacity(int currentCapacity) {
-        this.currentCapacity = currentCapacity;
+    public void setWarehouse_current_capacity(int warehouse_current_capacity) {
+        this.warehouse_current_capacity = warehouse_current_capacity;
     }
 
-    public int getWarehouseLimit() {
-        return warehouseLimit;
+    public int getWarehouse_limit() {
+        return warehouse_limit;
     }
 
-    public void setWarehouseLimit(int warehouseLimit) {
-        this.warehouseLimit = warehouseLimit;
+    public void setWarehouse_limit(int warehouse_limit) {
+        this.warehouse_limit = warehouse_limit;
     }
 
     @Override
@@ -92,10 +93,10 @@ public class Warehouse {
         final int prime = 31;
         int result = 1;
         result = prime * result + id;
-        result = prime * result + ((warehouseName == null) ? 0 : warehouseName.hashCode());
-        result = prime * result + ((warehouseLocation == null) ? 0 : warehouseLocation.hashCode());
-        result = prime * result + currentCapacity;
-        result = prime * result + warehouseLimit;
+        result = prime * result + ((warehouse_name == null) ? 0 : warehouse_name.hashCode());
+        result = prime * result + ((warehouse_location == null) ? 0 : warehouse_location.hashCode());
+        result = prime * result + warehouse_current_capacity;
+        result = prime * result + warehouse_limit;
         return result;
     }
 
@@ -110,27 +111,28 @@ public class Warehouse {
         Warehouse other = (Warehouse) obj;
         if (id != other.id)
             return false;
-        if (warehouseName == null) {
-            if (other.warehouseName != null)
+        if (warehouse_name == null) {
+            if (other.warehouse_name != null)
                 return false;
-        } else if (!warehouseName.equals(other.warehouseName))
+        } else if (!warehouse_name.equals(other.warehouse_name))
             return false;
-        if (warehouseLocation == null) {
-            if (other.warehouseLocation != null)
+        if (warehouse_location == null) {
+            if (other.warehouse_location != null)
                 return false;
-        } else if (!warehouseLocation.equals(other.warehouseLocation))
+        } else if (!warehouse_location.equals(other.warehouse_location))
             return false;
-        if (currentCapacity != other.currentCapacity)
+        if (warehouse_current_capacity != other.warehouse_current_capacity)
             return false;
-        if (warehouseLimit != other.warehouseLimit)
+        if (warehouse_limit != other.warehouse_limit)
             return false;
         return true;
     }
 
     @Override
     public String toString() {
-        return "Warehouse [id=" + id + ", warehouseName=" + warehouseName + ", warehouseLocation=" + warehouseLocation
-                + ", currentCapacity=" + currentCapacity + ", warehouseLimit=" + warehouseLimit + "]";
+        return "Warehouse [id=" + id + ", warehouse_name=" + warehouse_name + ", warehouse_location="
+                + warehouse_location + ", warehouse_current_capacity=" + warehouse_current_capacity
+                + ", warehouse_limit=" + warehouse_limit + "]";
     }
 
 }

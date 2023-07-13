@@ -13,10 +13,10 @@ export default function WarehouseForm(handleNewWarehouse) {
 
     const newWarehouse = {
       id : data.get("id"),
-      warehouseName : data.get("warehouseName"),
-      warehouseLocation : data.get("warehouseLocation"),
-      currentCapacity : data.get("currentCapacity"),
-      warehouseLimit : data.get("warehouseLimit")
+      warehouse_name : data.get("warehouse_name"),
+      warehouse_location : data.get("warehouse_location"),
+      warehouse_current_capacity : data.get("warehouse_current_capacity"),
+      warehouse_warehouse_limit : data.get("warehouse_limit")
     }
 
     fetch(url + "/warehouse", {
@@ -42,19 +42,19 @@ export default function WarehouseForm(handleNewWarehouse) {
 
       <Form onSubmit={handleSubmit}>
         <Label htmlFor="warehouse-id-input">Warehouse Id</Label>
-        <TextInput id="warehouse-input" name="warehouseId" type="text"></TextInput>
+        <TextInput id="warehouse-input" name="warehouse_id" type="text"></TextInput>
 
         <Label htmlFor="warehouse-name-input">Warehouse Name</Label>
-        <TextInput id="warehouse-input" name="warehouseName" type="text"></TextInput>
+        <TextInput id="warehouse-input" name="warehouse_name" type="text"></TextInput>
 
         <Label htmlFor="warehouse-location-input">Warehouse Location</Label>
-        <TextInput id="warehouse-input" name="warehouseLocation" type="text"></TextInput>
+        <TextInput id="warehouse-input" name="warehouse_location" type="text"></TextInput>
 
         <Label htmlFor="warehouse-capacity-input">Warehouse Current Capacity</Label>
-        <TextInput id="warehouse-input" name="warehouseCapacity" type="text" placeholder="Set this equal to 0 to start!"></TextInput>
+        <TextInput id="warehouse-input" name="warehouse_current_capacity" type="text" placeholder="Set this equal to 0 to start!"></TextInput>
 
         <Label htmlFor="warehouse-limit-input">Warehouse Capacity Limit</Label>
-        <TextInput id="warehouse-input" name="warehouseLimit" type="text"></TextInput>
+        <TextInput id="warehouse-input" name="warehouse_limit" type="text"></TextInput>
 
         <Button type="submit" data-close-modal='true'>Submit</Button>
 

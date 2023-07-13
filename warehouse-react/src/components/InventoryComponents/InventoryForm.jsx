@@ -13,9 +13,9 @@ export default function InventoryForm(handleNewInventory) {
 
     const newInventory = {
       id : data.get("id"),
-      productId : data.get("productId"),
-      warehouseId : data.get("warehouseId"),
-      quantity : data.get("productQuantity")
+      product_id : data.get("product_id"),
+      warehouse_id : data.get("warehouse_id"),
+      product_quantity : data.get("product_quantity")
     }
 
     fetch(url + "/inventory", {
@@ -41,16 +41,16 @@ export default function InventoryForm(handleNewInventory) {
 
       <Form onSubmit={handleSubmit}>
         <Label htmlFor="inventory-id-input">Inventory Id</Label>
-        <TextInput id="inventory-input" name="inventoryId" type="text"></TextInput>
+        <TextInput id="inventory-input" name="id" type="text"></TextInput>
 
         <Label htmlFor="product-name-input">Product Id</Label>
-        <TextInput id="inventory-input" name="productId" type="text"></TextInput>
+        <TextInput id="inventory-input" name="product_id" type="text"></TextInput>
 
         <Label htmlFor="warehouse-id-input">Warehouse Id</Label>
-        <TextInput id="inventory-input" name="warehouseId" type="text"></TextInput>
+        <TextInput id="inventory-input" name="warehouse_id" type="text"></TextInput>
 
         <Label htmlFor="inventory-quantity-input">Inventory Quantity</Label>
-        <TextInput id="inventory-input" name="inventoryQuantity" type="text"></TextInput>
+        <TextInput id="inventory-input" name="product_quantity" type="text"></TextInput>
 
         <Button type="submit" data-close-modal='true'>Submit</Button>
 

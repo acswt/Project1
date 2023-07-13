@@ -13,14 +13,14 @@ export default function ProductTable({tableData}) {
                 </tr>
             </thead>
             <tbody>
-                {tableData.map((product) => {
-                    return (
+                {tableData.map((product) => 
+                     (
                         <tr key={product.id}> 
                             <td>{product.id}</td>
-                            <td>{product.productName}</td>
+                            <td>{product.product_name}</td>
                         </tr>
                     )
-                })}
+                )}
             </tbody>
         </Table>
         </>

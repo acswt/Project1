@@ -20,14 +20,14 @@ public class Product {
 
     // name of product
     @Column(name = "product_name")
-    private String productName;
+    private String product_name;
 
     public Product() {
     }
 
-    public Product(int id, String productName) {
+    public Product(int id, String product_name) {
         this.id = id;
-        this.productName = productName;
+        this.product_name = product_name;
     }
 
     public int getId() {
@@ -38,12 +38,12 @@ public class Product {
         this.id = id;
     }
 
-    public String getProductName() {
-        return productName;
+    public String getProduct_name() {
+        return product_name;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setProduct_name(String product_name) {
+        this.product_name = product_name;
     }
 
     @Override
@@ -51,7 +51,7 @@ public class Product {
         final int prime = 31;
         int result = 1;
         result = prime * result + id;
-        result = prime * result + ((productName == null) ? 0 : productName.hashCode());
+        result = prime * result + ((product_name == null) ? 0 : product_name.hashCode());
         return result;
     }
 
@@ -66,17 +66,17 @@ public class Product {
         Product other = (Product) obj;
         if (id != other.id)
             return false;
-        if (productName == null) {
-            if (other.productName != null)
+        if (product_name == null) {
+            if (other.product_name != null)
                 return false;
-        } else if (!productName.equals(other.productName))
+        } else if (!product_name.equals(other.product_name))
             return false;
         return true;
     }
 
     @Override
     public String toString() {
-        return "Product [id=" + id + ", productName=" + productName + "]";
+        return "Product [id=" + id + ", product_name=" + product_name + "]";
     }
 
 }

@@ -16,6 +16,7 @@ export default function Products() {
         fetch(url)
             .then(data => data.json())
             .then(returnedData => {
+                console.log(returnedData)
                 setProducts(returnedData)
             })
             .catch(error => console.error(error))
@@ -26,7 +27,6 @@ export default function Products() {
         setProducts((oldState) => {
             return [...oldState, newProduct]
         })
-
     }
 
     return (
@@ -41,12 +41,12 @@ export default function Products() {
                         <ModalToggleButton modalRef={modalRef} opener>New Product</ModalToggleButton>
                     </Grid>
 
+                </Grid>
                     <Grid row>
                         <Grid col>
                             <ProductTable tableData={products}></ProductTable>
                         </Grid>
                     </Grid>
-                </Grid>
             </GridContainer>
 
             <Modal id='product-form-modal' ref={modalRef}>
@@ -56,9 +56,6 @@ export default function Products() {
                 <ProductForm handleNewProduct={handleNewProduct}></ProductForm>
 
             </Modal>
-
         </>
-
     );
-
 }

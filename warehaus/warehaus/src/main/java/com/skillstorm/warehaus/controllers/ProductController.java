@@ -22,7 +22,7 @@ import com.skillstorm.warehaus.services.ProductService;
 
 @RestController
 @RequestMapping("/products")
-@CrossOrigin()
+@CrossOrigin("*")
 public class ProductController {
     
     @Autowired

@@ -19,7 +19,7 @@ import com.skillstorm.warehaus.services.InventoryService;
 
 @RestController
 @RequestMapping("/inventories")
-@CrossOrigin()
+@CrossOrigin("*")
 public class InventoryController {
     
     @Autowired

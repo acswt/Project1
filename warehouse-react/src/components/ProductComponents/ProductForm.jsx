@@ -13,7 +13,7 @@ export default function ProductForm(handleNewProduct) {
 
     const newProduct = {
       id : data.get("id"),
-      name : data.get("productName")
+      product_name : data.get("product_name")
     }
 
     fetch(url + "/product", {
@@ -39,10 +39,10 @@ export default function ProductForm(handleNewProduct) {
 
       <Form onSubmit={handleSubmit}>
         <Label htmlFor="product-id-input">Product Id</Label>
-        <TextInput id="product-input" name="productId" type="text"></TextInput>
+        <TextInput id="product-input" name="id" type="text"></TextInput>
 
         <Label htmlFor="product-name-input">Product Name</Label>
-        <TextInput id="product-input" name="productName" type="text"></TextInput>
+        <TextInput id="product-input" name="product_name" type="text"></TextInput>
 
         <Button type="submit" data-close-modal='true'>Submit</Button>
 
