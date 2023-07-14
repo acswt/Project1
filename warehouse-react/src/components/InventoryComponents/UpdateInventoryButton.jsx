@@ -39,7 +39,7 @@ export default function UpdateInventoryButton({handleNewInventory}) {
     <>
 
       <Form onSubmit={handleSubmit}>
-        <Label htmlFor="inventory-id-input">Product Id</Label>
+        <Label htmlFor="inventory-id-input">Inventory Id</Label>
         <TextInput id="inventory-id-input" name="id" type="text"></TextInput>
 
         <Label htmlFor="product-id-input">Product Id</Label>
