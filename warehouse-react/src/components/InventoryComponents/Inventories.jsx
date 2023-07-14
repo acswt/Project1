@@ -52,7 +52,7 @@ export default function Inventories() {
                     </Grid>
 
                     <Grid col={2}>
-                        <ModalToggleButton modalRef={modalRefInv2} opener>Update Inventory</ModalToggleButton>
+                        <ModalToggleButton modalRef={modalRefInv2} opener>Delete Inventory</ModalToggleButton>
                     </Grid>
 
                 </Grid>
