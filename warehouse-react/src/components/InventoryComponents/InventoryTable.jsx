@@ -2,8 +2,6 @@ import { Table } from "@trussworks/react-uswds";
 
 export default function InventoryTable({tableData}) {
 
-    console.log(tableData)
-
     return (
 
         <>
@@ -19,14 +17,14 @@ export default function InventoryTable({tableData}) {
             <tbody>
                 {tableData.map((inventory) => {
                      
-                        <tr key={inventory.id}> 
+                return (  <tr key={inventory.id}> 
                             <td>{inventory.id}</td>
                             <td>{inventory.product_id}</td>
                             <td>{inventory.warehouse_id}</td>
                             <td>{inventory.product_quantity}</td>
                         </tr>
                     
-                })}
+                )})}
             </tbody>
         </Table>
         </>

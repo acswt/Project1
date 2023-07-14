@@ -5,38 +5,36 @@ export default function InventoryForm({handleNewInventory}) {
 
   const url = 'http://localhost:8080/inventories';
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
 
     event.preventDefault();
 
     const data = new FormData(event.target)
 
-    console.log(data + "This is the data");
-
-  //   const newInventory =     {
-  //     id: data.get("id"),
-  //     product_id: {
-  //         id: data.get("id")
-  //         // product_name: data.get("product_name")
-  //     },
-  //     warehouse_id: {
-  //         id: data.get("id")
-  //         // warehouse_name: data.get("warehouse_name"),
-  //         // warehouse_location: data.get("warehouse_location"),
-  //         // warehouse_current_capacity: data.get("warehouse_current_capacity"),
-  //         // warehouse_limit: data.get("warehouse_limit")
-  //     },
-  //     product_quantity: data.get("product_quantity")
-  // }
-
   const newInventory = {
     id: data.get("id"),
-    product_id: data.get("product_id.id"),
-    warehouse_id: data.get("warehouse_id.id"),
-    product_quantity: data.get("product_quantity") 
+    product_id: Number(data.get("product_id")),
+    warehouse_id: Number(data.get("warehouse_id")),
+    product_quantity: Number(data.get("product_quantity")) 
   }
 
-  
+  //   const newInventory = {
+  //   id: data.get("id"),
+  //   product_id: {
+  //     id: Number(data.get("product_id"))
+  //   },
+  //   warehouse_id: {
+  //     id: Number(data.get("warehouse_id"))
+  //   },
+  //   product_quantity: Number(data.get("product_quantity"))
+  // }
+
+  // const newInventory = {
+  //   id: data.get("id"),
+  //   product_id: Number(data.get("product_id")),
+  //   warehouse_id: Number(data.get("warehouse_id")),
+  //   product_quantity: Number(data.get("product_quantity")) 
+  // }
 
     fetch(url + "/inventory", {
       method : "POST",
@@ -61,16 +59,16 @@ export default function InventoryForm({handleNewInventory}) {
 
       <Form onSubmit={handleSubmit}>
         <Label htmlFor="inventory-id-input">Inventory Id</Label>
-        <TextInput id="inventory-input" name="id" type="text"></TextInput>
+        <TextInput id="inventory-id-input" name="id" type="text"></TextInput>
 
         <Label htmlFor="product-name-input">Product Id</Label>
-        <TextInput id="inventory-input" name="product_id" type="text"></TextInput>
+        <TextInput id="product-name-input" name="product_id" type="number"></TextInput>
 
         <Label htmlFor="warehouse-id-input">Warehouse Id</Label>
-        <TextInput id="inventory-input" name="warehouse_id" type="text"></TextInput>
+        <TextInput id="warehouse-id-input" name="warehouse_id" type="number"></TextInput>
 
         <Label htmlFor="inventory-quantity-input">Inventory Quantity</Label>
-        <TextInput id="inventory-input" name="product_quantity" type="text"></TextInput>
+        <TextInput id="inventory-quantity-input" name="product_quantity" type="number"></TextInput>
 
         <Button type="submit" data-close-modal='true'>Submit</Button>
 

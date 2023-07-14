@@ -29,31 +29,32 @@ public class InventoryController {
     @Autowired
     InventoryService inventoryService;
 
+// get request for inventories
+// @GetMapping
+// public ResponseEntity<List<InventoryDTO>> findAllInventories() {
+//     List<Inventory> inventories = inventoryService.findAllInventories();
+
+//     List<InventoryDTO> inventoryDTOs = inventories.stream()
+//             .map(inventory -> {
+//                 InventoryDTO dto = new InventoryDTO();
+//                 dto.setInventoryPrimaryKey(inventory.getInventoryPrimaryKey());
+//                 dto.setProduct_id(inventory.getProduct_id());
+//                 dto.getWarehouse_id(inventory.getWarehouse_id());
+//                 dto.setProduct_quantity(inventory.getProduct_quantity());
+//                 return dto;
+//             })
+//             .collect(Collectors.toList());
+
+//     return new ResponseEntity<>(inventoryDTOs, HttpStatus.OK);
+// }
+
     // get request for inventories
-    // @GetMapping
-    // public ResponseEntity<List<Inventory>> findAllInventories() {
+    @GetMapping
+    public ResponseEntity<List<Inventory>> findAllInventories() {
         
-    //     List<Inventory> inventories = inventoryService.findAllInventories();
-    //     return new ResponseEntity<List<Inventory>>(inventories, HttpStatus.OK);
-    // }
-
-@GetMapping
-public ResponseEntity<List<InventoryDTO>> findAllInventories() {
-    List<Inventory> inventories = inventoryService.findAllInventories();
-
-    List<InventoryDTO> inventoryDTOs = inventories.stream()
-            .map(inventory -> {
-                InventoryDTO dto = new InventoryDTO();
-                dto.setId(inventory.getId());
-                dto.setProduct_id(inventory.getProduct_id());
-                dto.getWarehouse_id(inventory.getWarehouse_id());
-                dto.setProduct_quantity(inventory.getProduct_quantity());
-                return dto;
-            })
-            .collect(Collectors.toList());
-
-    return new ResponseEntity<>(inventoryDTOs, HttpStatus.OK);
-}
+        List<Inventory> inventories = inventoryService.findAllInventories();
+        return new ResponseEntity<List<Inventory>>(inventories, HttpStatus.OK);
+    }
 
     // get inventory by inventory id 
     @GetMapping("/inventory/{id}")
@@ -91,3 +92,4 @@ public ResponseEntity<List<InventoryDTO>> findAllInventories() {
     }
 
 }
+

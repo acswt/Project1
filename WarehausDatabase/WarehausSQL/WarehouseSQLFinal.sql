@@ -23,8 +23,8 @@ CREATE TABLE inventories (
 	warehouse_id INT,
 	product_quantity INT,
 	CONSTRAINT PK_inventory PRIMARY KEY (warehouse_id, product_id),
-	CONSTRAINT FK_product_id FOREIGN KEY (product_id) REFERENCES products(id),
-	CONSTRAINT FK_warehouse_id FOREIGN KEY (warehouse_id) REFERENCES warehouses(id)
+-- 	CONSTRAINT FK_product_id FOREIGN KEY (product_id) REFERENCES products(id),
+-- 	CONSTRAINT FK_warehouse_id FOREIGN KEY (warehouse_id) REFERENCES warehouses(id)
 );
 
 

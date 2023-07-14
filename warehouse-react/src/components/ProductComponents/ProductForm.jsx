@@ -1,7 +1,7 @@
 import { Button, Form, Label, TextInput } from "@trussworks/react-uswds";
 
 
-export default function ProductForm(handleNewProduct) {
+export default function ProductForm({handleNewProduct}) {
 
   const url = 'http://localhost:8080/products';
 
@@ -10,8 +10,6 @@ export default function ProductForm(handleNewProduct) {
     event.preventDefault();
 
     const data = new FormData(event.target)
-
-    console.log("HERE IS THE PRODUCTs")
 
     const newProduct = {
       id : data.get("id"),
@@ -40,8 +38,8 @@ export default function ProductForm(handleNewProduct) {
     <>
 
       <Form onSubmit={handleSubmit}>
-        <Label htmlFor="product-id-input">Product Id</Label>
-        <TextInput id="product-input" name="id" type="text"></TextInput>
+        {/* <Label htmlFor="product-id-input">Product Id</Label>
+        <TextInput id="product-input" name="id" type="text"></TextInput> */}
 
         <Label htmlFor="product-name-input">Product Name</Label>
         <TextInput id="product-input" name="product_name" type="text"></TextInput>

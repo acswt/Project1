@@ -16,7 +16,7 @@ export default function UpdateWarehouseButton({handleNewWarehouse}) {
       warehouse_name : data.get("warehouse_name"),
       warehouse_location : data.get("warehouse_location"),
       warehouse_current_capacity : data.get("warehouse_current_capacity"),
-      warehouse_warehouse_limit : data.get("warehouse_limit")
+      warehouse_limit : data.get("warehouse_limit")
     }
 
     fetch(url + "/warehouse", {
