@@ -42,6 +42,26 @@ CREATE TRIGGER update_current_capacity_trigger2
   EXECUTE PROCEDURE update_current_capacity_fnc2();
 									  
 --*********************
+
+CREATE OR REPLACE FUNCTION update_current_capacity_fnc3()
+  RETURNS trigger AS
+$$
+BEGIN
+    UPDATE warehouses
+	SET warehouse_current_capacity = (SELECT SUM (product_quantity) FROM inventories)
+	WHERE warehouses.id = NEW.warehouse_id;
+	RETURN NEW;
+END;
+$$
+LANGUAGE 'plpgsql';
+
+CREATE TRIGGER update_current_capacity_trigger3
+  AFTER DELETE
+  ON inventories
+  FOR EACH ROW
+  EXECUTE PROCEDURE update_current_capacity_fnc3();
+									  
+--*********************
 									  
 
 CREATE OR REPLACE FUNCTION check_max_fnc()
