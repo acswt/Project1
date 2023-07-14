@@ -1,7 +1,7 @@
 import { Button, Form, Label, TextInput } from "@trussworks/react-uswds";
 
 
-export default function UpdateWarehouseButton({handleNewWarehouse}) {
+export default function UpdateWarehouseButton({ handleNewWarehouse }) {
 
   const url = 'http://localhost:8080/warehouses';
 
@@ -12,28 +12,30 @@ export default function UpdateWarehouseButton({handleNewWarehouse}) {
     const data = new FormData(event.target)
 
     const newWarehouse = {
-      id : data.get("id"),
-      warehouse_name : data.get("warehouse_name"),
-      warehouse_location : data.get("warehouse_location"),
-      warehouse_current_capacity : parseInt(data.get("warehouse_current_capacity")),
-      warehouse_limit : parseInt(data.get("warehouse_limit"))
+      id: data.get("id"),
+      warehouse_name: data.get("warehouse_name"),
+      warehouse_location: data.get("warehouse_location"),
+      warehouse_current_capacity: Number(data.get("warehouse_current_capacity")),
+      warehouse_limit: Number(data.get("warehouse_limit"))
+      // warehouse_current_capacity : parseInt(data.get("warehouse_current_capacity")),
+      // warehouse_limit : parseInt(data.get("warehouse_limit"))
     }
 
     fetch(url + "/warehouse", {
-      method : "PUT",
-      headers : {
-        "Content-type" : "application/json"
+      method: "PUT",
+      headers: {
+        "Content-type": "application/json"
       },
-      body : JSON.stringify(newWarehouse)
+      body: JSON.stringify(newWarehouse)
     })
-    .then(data => data.json())
-    .then(returnedData => {
-      handleNewWarehouse(returnedData);
+      .then(data => data.json())
+      .then(returnedData => {
+        handleNewWarehouse(returnedData);
 
-      event.target.reset();
-      window.location.reload();
-    })
-    .catch(error => console.log(error))
+        event.target.reset();
+        // window.location.reload();
+      })
+      .catch(error => console.log(error))
   }
 
   return (
@@ -50,9 +52,6 @@ export default function UpdateWarehouseButton({handleNewWarehouse}) {
         <Label htmlFor="warehouse-location-input">Warehouse Location</Label>
         <TextInput id="warehouse-location-input" name="warehouse_location" type="text"></TextInput>
 
-        <Label htmlFor="warehouse-capacity-input">Warehouse Current Capacity</Label>
-        <TextInput id="warehouse-capacity-input" name="warehouse_current_capacity" type="text" placeholder="Set this equal to 0 to start!"></TextInput>
-
         <Label htmlFor="warehouse-limit-input">Warehouse Capacity Limit</Label>
         <TextInput id="warehouse-limit-input" name="warehouse_limit" type="text"></TextInput>
 
@@ -65,3 +64,6 @@ export default function UpdateWarehouseButton({handleNewWarehouse}) {
   );
 
 }
+
+{/* <Label htmlFor="warehouse-capacity-input">Warehouse Current Capacity</Label>
+        <TextInput id="warehouse-capacity-input" name="warehouse_current_capacity" type="text" placeholder="Set this equal to 0 to start!"></TextInput> */}

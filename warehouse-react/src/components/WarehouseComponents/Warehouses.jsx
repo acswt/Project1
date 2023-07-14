@@ -37,6 +37,8 @@ export default function Warehouses() {
 
         <>
             <GridContainer>
+
+
                 <Grid row>
                     <Grid col={10}>
                         <h1 className='text-centered'>All Warehouses</h1>
@@ -55,11 +57,15 @@ export default function Warehouses() {
                     </Grid>
 
                 </Grid>
+
+
                 <Grid row>
                     <Grid col>
                         <WarehouseTable tableData={warehouses}></WarehouseTable>
                     </Grid>
                 </Grid>
+
+
             </GridContainer>
 
             <Modal id='warehouse-form-modal' ref={modalRef}>

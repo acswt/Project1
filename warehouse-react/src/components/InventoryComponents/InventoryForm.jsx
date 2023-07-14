@@ -18,24 +18,6 @@ export default function InventoryForm({handleNewInventory}) {
     product_quantity: Number(data.get("product_quantity")) 
   }
 
-  //   const newInventory = {
-  //   id: data.get("id"),
-  //   product_id: {
-  //     id: Number(data.get("product_id"))
-  //   },
-  //   warehouse_id: {
-  //     id: Number(data.get("warehouse_id"))
-  //   },
-  //   product_quantity: Number(data.get("product_quantity"))
-  // }
-
-  // const newInventory = {
-  //   id: data.get("id"),
-  //   product_id: Number(data.get("product_id")),
-  //   warehouse_id: Number(data.get("warehouse_id")),
-  //   product_quantity: Number(data.get("product_quantity")) 
-  // }
-
     fetch(url + "/inventory", {
       method : "POST",
       headers : {
@@ -58,8 +40,8 @@ export default function InventoryForm({handleNewInventory}) {
     <>
 
       <Form onSubmit={handleSubmit}>
-        <Label htmlFor="inventory-id-input">Inventory Id</Label>
-        <TextInput id="inventory-id-input" name="id" type="text"></TextInput>
+        {/* <Label htmlFor="inventory-id-input">Inventory Id</Label>
+        <TextInput id="inventory-id-input" name="id" type="text"></TextInput> */}
 
         <Label htmlFor="product-name-input">Product Id</Label>
         <TextInput id="product-name-input" name="product_id" type="number"></TextInput>
@@ -77,3 +59,21 @@ export default function InventoryForm({handleNewInventory}) {
     </>
   );
 }
+
+  //   const newInventory = {
+  //   id: data.get("id"),
+  //   product_id: {
+  //     id: Number(data.get("product_id"))
+  //   },
+  //   warehouse_id: {
+  //     id: Number(data.get("warehouse_id"))
+  //   },
+  //   product_quantity: Number(data.get("product_quantity"))
+  // }
+
+  // const newInventory = {
+  //   id: data.get("id"),
+  //   product_id: Number(data.get("product_id")),
+  //   warehouse_id: Number(data.get("warehouse_id")),
+  //   product_quantity: Number(data.get("product_quantity")) 
+  // }

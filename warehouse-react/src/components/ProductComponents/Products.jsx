@@ -3,6 +3,8 @@ import ProductTable from "./ProductTable";
 import { useEffect, useRef, useState } from "react";
 import ProductForm from "./ProductForm";
 import UpdateProductButton from "./UpdateProductButton";
+import DeleteProductButton from "./DeleteProductButton"
+
 
 export default function Products() {
 
@@ -13,6 +15,7 @@ export default function Products() {
 
     const modalRef = useRef(null);
     const modalRef2 = useRef(null);
+    const modalRef9 = useRef(null);
 
     useEffect(() => {
         fetch(url)
@@ -47,6 +50,10 @@ export default function Products() {
                         <ModalToggleButton modalRef={modalRef2} opener>Update Product</ModalToggleButton>
                     </Grid>
 
+                    <Grid col={2}>
+                        <ModalToggleButton modalRef={modalRef9} opener>Delete Product</ModalToggleButton>
+                    </Grid>
+
                 </Grid>
                 <Grid row>
                     <Grid col>
@@ -63,11 +70,19 @@ export default function Products() {
 
             </Modal>
 
-            <Modal id='product-form-modal' ref={modalRef2}>
+            <Modal id='product-update-modal' ref={modalRef2}>
 
-                <ModalHeading id="product-form-modal-heading">Update Product Details</ModalHeading>
+                <ModalHeading id="product-form-update-heading">Update Product Details</ModalHeading>
 
                 <UpdateProductButton handleNewProduct={handleNewProduct}></UpdateProductButton>
+
+            </Modal>
+
+            <Modal id='product-delete-modal' ref={modalRef9}>
+
+                <ModalHeading id="product-form-delete-heading">Delete Product</ModalHeading>
+
+                <DeleteProductButton handleNewProduct={handleNewProduct}></DeleteProductButton>
 
             </Modal>
 

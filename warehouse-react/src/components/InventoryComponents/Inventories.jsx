@@ -16,7 +16,7 @@ export default function Inventories() {
 
     useEffect(() => {
         fetch(url)
-        .then(data => data.json())
+            .then(data => data.json())
             .then(returnedData => {
                 setInventories(returnedData)
             })
@@ -43,12 +43,12 @@ export default function Inventories() {
                         <ModalToggleButton modalRef={modalRef} opener>New Inventory</ModalToggleButton>
                     </Grid>
 
+                </Grid>
+                <Grid row>
+                    <Grid col>
+                        <InventoryTable tableData={inventories}></InventoryTable>
                     </Grid>
-                    <Grid row>
-                        <Grid col>
-                            <InventoryTable tableData={inventories}></InventoryTable>
-                        </Grid>
-                    </Grid>
+                </Grid>
             </GridContainer>
 
             <Modal id='inventory-form-modal' ref={modalRef}>
@@ -58,6 +58,8 @@ export default function Inventories() {
                 <InventoryForm handleNewInventory={handleNewInventory}></InventoryForm>
 
             </Modal>
+
+
         </>
     );
 }

@@ -12,14 +12,10 @@ export default function UpdateWarehouseButton({handleNewWarehouse}) {
     const data = new FormData(event.target)
 
     const newWarehouse = {
-      id : data.get("id"),
-      warehouse_name : data.get("warehouse_name"),
-      warehouse_location : data.get("warehouse_location"),
-      warehouse_current_capacity : data.get("warehouse_current_capacity"),
-      warehouse_limit : data.get("warehouse_limit")
+      id : data.get("id")
     }
 
-    fetch(url + "/warehouse", {
+    fetch(url + "/warehouse/", {
       method : "DELETE",
       headers : {
         "Content-type" : "application/json"
@@ -31,7 +27,6 @@ export default function UpdateWarehouseButton({handleNewWarehouse}) {
       handleNewWarehouse(returnedData);
 
       event.target.reset();
-      window.location.reload();
     })
     .catch(error => console.log(error))
   }
@@ -44,18 +39,6 @@ export default function UpdateWarehouseButton({handleNewWarehouse}) {
         <Label htmlFor="warehouse-id-input">Warehouse Id</Label>
         <TextInput id="warehouse-id-input" name="id" type="text"></TextInput>
 
-        <Label htmlFor="warehouse-name-input">Warehouse Name</Label>
-        <TextInput id="warehouse-name-input" name="warehouse_name" type="text"></TextInput>
-
-        <Label htmlFor="warehouse-location-input">Warehouse Location</Label>
-        <TextInput id="warehouse-location-input" name="warehouse_location" type="text"></TextInput>
-
-        <Label htmlFor="warehouse-capacity-input">Warehouse Current Capacity</Label>
-        <TextInput id="warehouse-capacity-input" name="warehouse_current_capacity" type="number" placeholder="Set this equal to 0 to start!"></TextInput>
-
-        <Label htmlFor="warehouse-limit-input">Warehouse Capacity Limit</Label>
-        <TextInput id="warehouse-limit-input" name="warehouse_limit" type="number"></TextInput>
-
         <Button type="submit" data-close-modal='true'>Submit</Button>
 
       </Form>
@@ -65,3 +48,24 @@ export default function UpdateWarehouseButton({handleNewWarehouse}) {
   );
 
 }
+
+        {/* <Label htmlFor="warehouse-name-input">Warehouse Name</Label>
+        <TextInput id="warehouse-name-input" name="warehouse_name" type="text"></TextInput>
+
+        <Label htmlFor="warehouse-location-input">Warehouse Location</Label>
+        <TextInput id="warehouse-location-input" name="warehouse_location" type="text"></TextInput>
+
+        <Label htmlFor="warehouse-capacity-input">Warehouse Current Capacity</Label>
+        <TextInput id="warehouse-capacity-input" name="warehouse_current_capacity" type="number" placeholder="Set this equal to 0 to start!"></TextInput>
+
+        <Label htmlFor="warehouse-limit-input">Warehouse Capacity Limit</Label>
+        <TextInput id="warehouse-limit-input" name="warehouse_limit" type="number"></TextInput> */}
+
+
+            // const newWarehouse = {
+    //   id : data.get("id"),
+    //   warehouse_name : data.get("warehouse_name"),
+    //   warehouse_location : data.get("warehouse_location"),
+    //   warehouse_current_capacity : data.get("warehouse_current_capacity"),
+    //   warehouse_limit : data.get("warehouse_limit")
+    // }
