@@ -8,19 +8,19 @@ INSERT INTO products
 VALUES (3, 'Shirt')
 
 INSERT INTO warehouses
-VALUES (4, 'Clothing Garage', 'Pittsburgh', 0, 10)
+VALUES (1, 'Clothing Garage', 'Pittsburgh', 0, 10)
 
 INSERT INTO warehouses
-VALUES(7, 'Clothing Store', 'Cleveland', 0, 10)
+VALUES(2, 'Clothing Store', 'Cleveland', 0, 10)
 
 INSERT INTO inventories
-VALUES (1, 1, 4, 2);
+VALUES (1, 2, 1, 20);
 
 INSERT INTO inventories
-VALUES (3, 2, 4, 8);
+VALUES (2, 2, 2, 8);
 
 INSERT INTO inventories
-VALUES (3, 3, 4, 8);
+VALUES (2, 2, 2, 1);
 
 SELECT * from inventories
 
