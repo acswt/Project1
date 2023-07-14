@@ -3,6 +3,8 @@ import { GridContainer } from "@trussworks/react-uswds";
 import InventoryTable from "./InventoryTable";
 import { useEffect, useRef, useState } from "react";
 import InventoryForm from "./InventoryForm";
+import UpdateInventoryButton from "./UpdateInventoryButton";
+import DeleteInventoryButton from "./DeleteInventoryButton";
 
 export default function Inventories() {
 
@@ -13,6 +15,8 @@ export default function Inventories() {
     const [inventories, setInventories] = useState([]);
 
     const modalRef = useRef(null);
+    const modalRefInv = useRef(null);
+    const modalRefInv2 = useRef(null);
 
     useEffect(() => {
         fetch(url)
@@ -43,6 +47,14 @@ export default function Inventories() {
                         <ModalToggleButton modalRef={modalRef} opener>New Inventory</ModalToggleButton>
                     </Grid>
 
+                    <Grid col={2}>
+                        <ModalToggleButton modalRef={modalRefInv} opener>Update Inventory</ModalToggleButton>
+                    </Grid>
+
+                    <Grid col={2}>
+                        <ModalToggleButton modalRef={modalRefInv2} opener>Update Inventory</ModalToggleButton>
+                    </Grid>
+
                 </Grid>
                 <Grid row>
                     <Grid col>
@@ -56,6 +68,22 @@ export default function Inventories() {
                 <ModalHeading id="inventory-form-modal-heading">Enter New Inventory Details</ModalHeading>
 
                 <InventoryForm handleNewInventory={handleNewInventory}></InventoryForm>
+
+            </Modal>
+
+            <Modal id='inventory-update-modal' ref={modalRefInv}>
+
+                <ModalHeading id="inventory-update-modal-heading">Update Inventory</ModalHeading>
+
+                <UpdateInventoryButton handleNewInventory={handleNewInventory}></UpdateInventoryButton>
+
+            </Modal>
+
+            <Modal id='inventory-delete-modal' ref={modalRefInv2}>
+
+                <ModalHeading id="inventory-delete-modal-heading">Delete Inventory</ModalHeading>
+
+                <DeleteInventoryButton handleNewInventory={handleNewInventory}></DeleteInventoryButton>
 
             </Modal>
 

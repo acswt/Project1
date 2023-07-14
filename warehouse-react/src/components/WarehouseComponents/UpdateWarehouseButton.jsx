@@ -53,7 +53,7 @@ export default function UpdateWarehouseButton({ handleNewWarehouse }) {
         <TextInput id="warehouse-location-input" name="warehouse_location" type="text"></TextInput>
 
         <Label htmlFor="warehouse-limit-input">Warehouse Capacity Limit</Label>
-        <TextInput id="warehouse-limit-input" name="warehouse_limit" type="text"></TextInput>
+        <TextInput id="warehouse-limit-input" name="warehouse_limit" type="number"></TextInput>
 
         <Button type="submit" data-close-modal='true'>Submit</Button>
 
